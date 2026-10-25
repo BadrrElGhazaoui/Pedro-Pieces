@@ -1,10 +1,7 @@
 import Image from "next/image";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
 
 export default function Header() {
-    const profileTeamImage = ["test-image.jpg", "test-image.jpg", "test-image.jpg", "test-image.jpg", "test-image.jpg", "test-image.jpg"];
     return (
         <header className="relative">
             <div className="flex flex-col md:flex-row justify-between items-center z-10">
@@ -21,16 +18,15 @@ export default function Header() {
                     <div className="lg:absolute xl:top-5 top-0">
                         <h2 className="text-text-primary font-extrabold text-3xl xl:text-5xl mb-3 text-center md:text-left">Our Team</h2>
                         <p className="text-text-secondary font-medium text-base xl:text-xl text-center md:text-left">
-                            Our dedicated team of professionals brings years of expertise in construction and engineering. We specialize in delivering high-quality projects that exceed expectations while maintaining the highest standards of safety and sustainability.
+                            PEDRO PIÈCES is led by Said El Ghazaoui, Managing Director, whose 28 years of experience at SGTM shaped a deep understanding of construction and public works. He founded the Casablanca-based company to bring that experience to a business of his own. Together, Said and his team have delivered the projects featured in our portfolio across Morocco.
                         </p>
-                        <div className="flex justify-center md:justify-start items-center mt-5 cursor-pointer">
-                            {profileTeamImage.map((name, index) => (
-                                <Image key={index} className="rounded-full border-2 border-accent p-[2px] size-12 xl:size-16 -me-2 md:-me-4 hover:mx-4 md:hover:mx-6 transition-all duration-500"
-                                    src={`/images/team/${name}`} alt="Person" width={64} height={64} />
-                            ))}
-                            <div className="flex justify-center items-center rounded-full bg-accent text-bg-primary border-2 border-bg-primary p-[2px] size-12 xl:size-16 -me-2 md:-me-4 hover:mx-4 md:hover:mx-6 transition-all duration-500">
-                                <FontAwesomeIcon icon={faPlus} className="size-6 md:size-9 text-2xl" />
-                            </div>
+                        <div className="mt-5 flex justify-center md:justify-start">
+                            <p className="rounded-xl border border-accent/20 bg-bg-secondary px-5 py-3 text-center md:text-left">
+                                <span className="block text-2xl font-extrabold text-accent">28 years</span>
+                                <span className="mt-1 block text-sm font-medium text-text-secondary">
+                                    of industry experience at SGTM
+                                </span>
+                            </p>
                         </div>
                     </div>
                     <div className="lg:w-2/5 flex flex-row font-semibold sm:text-lg text-sm capitalize text-center md:text-left lg:absolute xl:bottom-5 bottom-0">
