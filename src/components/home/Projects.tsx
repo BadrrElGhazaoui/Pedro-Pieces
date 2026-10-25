@@ -1,64 +1,86 @@
-'use client';
+"use client";
 
-import React from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-
-// Simple slider: one card per project, swipe or use the arrows.
-// No stacked-cards effect, no before/after slider, no particles (lighter and smoother).
-const projectList = [
-    { image: '/images/header-image.jpg', title: 'Modern Office Complex' },
-    { image: '/images/projects/project-1.jpg', title: 'Residential Tower' },
-    { image: '/images/projects/project-2.jpg', title: 'Industrial Warehouse' },
-    { image: '/images/projects/project-3.jpg', title: 'Shopping Center' },
-    { image: '/images/medium-shot-low-angle-view-smiling-engineer.jpg', title: 'Hospital Extension' },
-    { image: '/images/projects/project-1.jpg', title: 'Educational Campus' },
-];
+import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { projects } from "@/lib/projects";
 
 export default function OurProject() {
-    return (
-        <section className="w-full text-center">
-            <h2 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl mb-3">Our Projects</h2>
-            <div className="my-10 relative flex justify-center">
-                <button aria-label="Previous project" className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-accent text-bg-primary flex justify-center items-center p-2 sm:p-3 rounded-full size-10 sm:size-14 cursor-pointer">
-                    <FontAwesomeIcon icon={faAngleLeft} className="font-extralight text-3xl" />
-                </button>
-                <button aria-label="Next project" className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-accent text-bg-primary flex justify-center items-center p-2 sm:p-3 rounded-full size-10 sm:size-14 cursor-pointer">
-                    <FontAwesomeIcon icon={faAngleRight} className="font-extralight text-3xl" />
-                </button>
+  return (
+    <section className="w-full" aria-labelledby="featured-projects-heading">
+      <div className="text-center">
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">
+          Landmarks across Morocco
+        </p>
+        <h2
+          id="featured-projects-heading"
+          className="mt-2 text-3xl font-extrabold text-text-primary sm:text-4xl lg:text-5xl"
+        >
+          Projects &amp; Landmarks
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-text-secondary sm:text-lg">
+          A selection of remarkable infrastructure, civic and commercial
+          destinations from across the country.
+        </p>
+      </div>
 
-                <Swiper
-                    modules={[Navigation]}
-                    slidesPerView={1}
-                    spaceBetween={16}
-                    grabCursor
-                    navigation={{
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    }}
-                    className="w-full max-w-[90vw] sm:max-w-[70vw] md:max-w-[60vw] lg:max-w-[50vw]"
-                >
-                    {projectList.map((item, index) => (
-                        <SwiperSlide key={index} className="rounded-xl relative overflow-hidden border-3 border-text-primary bg-bg-primary">
-                            <div className="relative h-[50vh] sm:h-[60vh] w-full">
-                                <Image
-                                    src={item.image}
-                                    alt={item.title}
-                                    fill
-                                    sizes="(min-width: 1024px) 50vw, 90vw"
-                                    className="object-cover object-left-top"
-                                />
-                            </div>
-                            <div className="absolute bottom-0 flex justify-center items-center pt-3 w-full h-16 sm:h-20 bg-gradient-to-t from-text-primary/90 to-black/0 text-bg-primary text-xl sm:text-2xl font-medium z-10">
-                                {item.title}
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
-        </section>
-    );
+      <div className="relative mx-auto mt-8 max-w-5xl px-1 sm:px-10">
+        <button
+          aria-label="Previous project"
+          className="projects-carousel-prev absolute left-0 top-1/2 z-10 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-bg-primary text-accent shadow-lg ring-1 ring-gray-200 transition hover:bg-accent hover:text-bg-primary sm:left-0 sm:size-12"
+        >
+          <FontAwesomeIcon icon={faAngleLeft} className="text-xl" />
+        </button>
+        <button
+          aria-label="Next project"
+          className="projects-carousel-next absolute right-0 top-1/2 z-10 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-bg-primary text-accent shadow-lg ring-1 ring-gray-200 transition hover:bg-accent hover:text-bg-primary sm:right-0 sm:size-12"
+        >
+          <FontAwesomeIcon icon={faAngleRight} className="text-xl" />
+        </button>
+
+        <Swiper
+          modules={[Navigation]}
+          slidesPerView={1}
+          spaceBetween={20}
+          grabCursor
+          navigation={{
+            nextEl: ".projects-carousel-next",
+            prevEl: ".projects-carousel-prev",
+          }}
+          className="overflow-hidden rounded-2xl"
+        >
+          {projects.map((project) => (
+            <SwiperSlide
+              key={project.title}
+              className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-text-primary"
+            >
+              <Image
+                src={project.image}
+                alt={`${project.title}, ${project.location}`}
+                fill
+                sizes="(min-width: 1024px) 880px, 100vw"
+                className="object-cover"
+                priority={project === projects[0]}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071a2d]/90 via-[#071a2d]/15 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-5 text-left text-white sm:p-8">
+                <span className="inline-flex rounded-full border border-white/30 bg-black/20 px-3 py-1 text-xs font-semibold tracking-wide backdrop-blur-sm sm:text-sm">
+                  {project.category} <span className="mx-2">·</span>{" "}
+                  {project.location}
+                </span>
+                <h3 className="mt-3 max-w-2xl text-2xl font-bold sm:text-3xl md:text-4xl">
+                  {project.title}
+                </h3>
+                <p className="mt-2 max-w-2xl text-sm leading-6 text-white/85 sm:text-base">
+                  {project.description}
+                </p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
+  );
 }

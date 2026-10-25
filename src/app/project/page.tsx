@@ -1,120 +1,75 @@
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-
-const projects = [
-  {
-    id: 1,
-    title: "Modern Office Complex",
-    description: "A state-of-the-art office building designed with sustainability in mind.",
-    image: "/images/projects/project-1.jpg",
-  },
-  {
-    id: 2,
-    title: "Residential Tower",
-    description: "Luxury living spaces combining comfort and modern architecture.",
-    image: "/images/projects/project-2.jpg",
-  },
-  {
-    id: 3,
-    title: "Industrial Warehouse",
-    description: "Efficient and durable warehouse facilities for global businesses.",
-    image: "/images/projects/project-3.jpg",
-  },
-  {
-    id: 4,
-    title: "Shopping Center",
-    description: "A modern hub for retail, entertainment, and leisure activities.",
-    image: "/images/projects/project-1.jpg",
-  },
-  {
-    id: 5,
-    title: "Shopping Center",
-    description: "A modern hub for retail, entertainment, and leisure activities.",
-    image: "/images/projects/project-2.jpg",
-  },
-  {
-    id: 6,
-    title: "Shopping Center",
-    description: "A modern hub for retail, entertainment, and leisure activities.",
-    image: "/images/projects/project-3.jpg",
-  },
-  {
-    id: 7,
-    title: "Shopping Center",
-    description: "A modern hub for retail, entertainment, and leisure activities.",
-    image: "/images/projects/project-1.jpg",
-  },
-];
+import { projects } from "@/lib/projects";
 
 export default function ProjectPage() {
   return (
-    <main className="relative">
-      {/* هدر پروژه‌ها */}
-      <section className="flex flex-col md:flex-row justify-between items-center">
-        <h1 className="font-black text-4xl md:text-5xl lg:text-6xl leading-normal text-center md:text-left">
-          Our <span className="text-accent">Projects</span>
-          <br />
-          Excellence in Every Step
+    <div className="relative">
+      <section className="mx-auto max-w-3xl text-center">
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">
+          Infrastructure across Morocco
+        </p>
+        <h1 className="mt-3 text-4xl font-extrabold leading-tight text-text-primary sm:text-5xl lg:text-6xl">
+          Projects &amp; <span className="text-accent">Landmarks</span>
         </h1>
-        {/* <div className="w-3/4 md:w-1/4 m-auto text-center mt-6 md:mt-0">
-          <Image
-            className="w-40 md:w-80 mx-auto rounded-xl"
-            src="/images/header-image.jpg"
-            alt="Projects Hero"
-            width={300}
-            height={300}
-          />
-        </div> */}
+        <p className="mt-5 text-base leading-7 text-text-secondary sm:text-lg">
+          Explore a selection of Morocco’s most recognized infrastructure,
+          cultural and commercial destinations, from landmark dams to major
+          airports and city icons.
+        </p>
       </section>
 
-      {/* لیست پروژه‌ها */}
-      <section className="mt-12">
-        {/* <h2 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-center mb-8">
-          Featured Projects
-        </h2> */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="rounded-xl shadow-lg overflow-hidden border border-text-secondary/50 hover:shadow-xl transition group"
-            >
+      <section
+        aria-label="Project gallery"
+        className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3"
+      >
+        {projects.map((project) => (
+          <article
+            key={project.title}
+            className="group overflow-hidden rounded-2xl border border-gray-200 bg-bg-primary shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div className="relative aspect-[16/10] overflow-hidden bg-bg-secondary">
               <Image
                 src={project.image}
-                alt={project.title}
-                width={400}
-                height={250}
-                className="w-full h-56 object-cover group-hover:scale-105 transition duration-500"
+                alt={`${project.title}, ${project.location}`}
+                fill
+                sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover transition duration-500 group-hover:scale-105"
               />
-              <div className="p-5">
-                <h3 className="font-bold text-xl mb-2">{project.title}</h3>
-                <p className="text-text-secondary mb-4">{project.description}</p>
-                <button className="flex items-center gap-2 text-accent font-semibold hover:underline">
-                  Learn More <FontAwesomeIcon icon={faArrowRight} />
-                </button>
-              </div>
+              <span className="absolute left-4 top-4 rounded-full bg-bg-primary/95 px-3 py-1 text-xs font-semibold text-accent shadow-sm">
+                {project.category}
+              </span>
             </div>
-          ))}
-        </div>
+            <div className="p-5 sm:p-6">
+              <p className="text-sm font-semibold text-accent">
+                {project.location}, Morocco
+              </p>
+              <h2 className="mt-2 text-xl font-bold leading-snug text-text-primary">
+                {project.title}
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-text-secondary sm:text-base">
+                {project.description}
+              </p>
+            </div>
+          </article>
+        ))}
       </section>
 
-
-      {/* CTA */}
-      <section className="mt-20 text-center">
-        <h2 className="text-text-primary font-extrabold text-3xl sm:text-4xl lg:text-5xl mb-6">
-          Let’s Build Your Future Project Together
+      <section className="mt-16 rounded-2xl bg-bg-secondary px-6 py-10 text-center sm:mt-20 sm:px-10">
+        <h2 className="text-2xl font-extrabold text-text-primary sm:text-3xl">
+          Have a project in mind?
         </h2>
-        <p className="max-w-2xl mx-auto text-text-secondary mb-6">
-          Ready to start your next big project? Contact us today and let our
-          experts bring your vision to life with innovation and excellence.
+        <p className="mx-auto mt-3 max-w-2xl text-text-secondary">
+          Talk with our team about machinery, equipment and spare parts for
+          your next construction or public works project.
         </p>
-        <Link href={'/contact'}>
-          <button className="bg-accent text-bg-primary px-8 py-3 rounded-full font-semibold cursor-pointer transition">
-            Contact Us
-          </button>
+        <Link
+          href="/contact"
+          className="mt-6 inline-flex rounded-full bg-accent px-8 py-3 font-semibold text-bg-primary transition hover:bg-accent-dark"
+        >
+          Contact Us
         </Link>
       </section>
-    </main>
+    </div>
   );
 }
