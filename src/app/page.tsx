@@ -3,7 +3,6 @@ import Header from "@/components/home/Header"; // Header section component
 import Services from "@/components/home/Services"; // Services section component
 import OurProjects from "@/components/home/Projects"; // Projects section component
 import AboutUs from "@/components/home/AboutUs"; // About Us section component
-import Blog from "@/components/home/Blog"; // Blog section component
 
 // Default export for the Home component
 export default function Home() {
@@ -23,9 +22,6 @@ export default function Home() {
 
         {/* About Us section providing information about the company */}
         <AboutUs />
-
-        {/* Blog section displaying recent blog posts or articles */}
-        <Blog />
       </main>
     </>
   );
