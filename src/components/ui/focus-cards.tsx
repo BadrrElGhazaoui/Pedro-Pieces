@@ -1,41 +1,39 @@
 import Image from "next/image";
 
-// Type definition for the card object
 type CardType = {
-    title: string; // Title of the card
-    src: string; // Image source URL
+    title: string;
+    description: string;
+    image: string;
 };
 
-// Static card: not clickable, no hover/blur effect, no client-side state (lighter and smoother)
 export function Card({ card }: { card: CardType }) {
     return (
-        <div className="rounded-md relative bg-bg-secondary overflow-hidden h-40 md:h-60 lg:h-96 w-full mt-5">
-            {/* Card image */}
+        <article className="group relative mt-5 h-72 w-full overflow-hidden rounded-2xl bg-text-primary shadow-md sm:h-80 lg:h-[22rem]">
             <Image
-                src={card.src}
+                src={card.image}
                 alt={card.title}
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
-                className="object-cover absolute inset-0"
+                className="absolute inset-0 object-cover transition-transform duration-500 group-hover:scale-105"
             />
 
-            {/* Dark gradient overlay from bottom to top */}
-            <div className="absolute inset-0 bg-gradient-to-t from-text-primary to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#071a2d]/95 via-[#071a2d]/35 to-transparent"></div>
 
-            {/* Title on top of the gradient */}
-            <div className="absolute inset-x-0 bottom-0 py-4 md:py-6 lg:py-8 px-4">
-                <div className="text-lg md:text-xl lg:text-2xl font-medium text-bg-primary">
+            <div className="absolute inset-x-0 bottom-0 px-5 py-6 text-left sm:px-6">
+                <h3 className="text-xl font-bold leading-snug text-white sm:text-2xl">
                     {card.title}
-                </div>
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-white/85">
+                    {card.description}
+                </p>
             </div>
-        </div>
+        </article>
     );
 }
 
-// FocusCards component to render a list of cards
 export function FocusCards({ cards }: { cards: CardType[] }) {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 w-full capitalize">
+        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
             {cards.map((card) => (
                 <Card key={card.title} card={card} />
             ))}

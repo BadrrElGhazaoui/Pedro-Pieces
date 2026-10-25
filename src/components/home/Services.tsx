@@ -1,32 +1,20 @@
 import { FocusCards } from "@/components/ui/focus-cards";
+import { services } from "@/lib/services";
 
 export default function Services() {
-  const cards = [
-    {
-      title: "Building renovation",
-      src: "/images/medium-shot-low-angle-view-smiling-engineer.jpg",
-    },
-    {
-      title: "Interior Finishing",
-      src: "/images/medium-shot-low-angle-view-smiling-engineer.jpg",
-    },
-    {
-      title: "Roofing Solutions",
-      src: "/images/medium-shot-low-angle-view-smiling-engineer.jpg",
-    },
-    {
-      title: "Foundation Repair",
-      src: "/images/medium-shot-low-angle-view-smiling-engineer.jpg",
-    },
-  ];
-
   return (
     <section className="text-center md:text-left">
-      <h2 className="text-text-primary font-extrabold text-3xl md:text-4xl lg:text-5xl mb-3">Services Tailored to You</h2>
-      <p className="text-text-secondary text-sm md:text-base lg:text-lg max-w-3xl mx-auto md:mx-0">
-        We provide comprehensive construction and renovation services tailored to meet your specific needs. Our experienced team ensures quality craftsmanship and timely project completion for all your building requirements.
+      <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">
+        Parts, machinery &amp; support
       </p>
-      <FocusCards cards={cards} />
+      <h2 className="mt-2 text-3xl font-extrabold text-text-primary md:text-4xl lg:text-5xl">
+        Services Built Around Your Equipment
+      </h2>
+      <p className="mx-auto mt-4 max-w-3xl text-sm leading-6 text-text-secondary md:mx-0 md:text-base lg:text-lg">
+        From the right replacement part to equipment repair, rental and
+        international trade, PEDRO PIÈCES helps keep construction work moving.
+      </p>
+      <FocusCards cards={services} />
     </section>
   );
 }
