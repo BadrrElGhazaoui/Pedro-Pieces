@@ -13,7 +13,6 @@ const navbarList: { title: string; link: string; mobileOnly?: boolean }[] = [
     { title: "About", link: "/about" },
     { title: "Service", link: "/service" },
     { title: "Project", link: "/project" },
-    { title: "Blog", link: "/blog" },
     { title: "Contact", link: "/contact", mobileOnly: true },
 ];
 

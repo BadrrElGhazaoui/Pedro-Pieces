@@ -1,103 +1,36 @@
-'use client';
+import Image from "next/image";
 
-import React from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCards, Navigation } from 'swiper/modules';
-import { Compare } from "@/components/ui/compare";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+// Static project cards: no slider, no before/after effect, no particles (lighter and smoother)
+const projectList = [
+    { image: "/images/projects/project-1.jpg", title: "Modern Office Complex" },
+    { image: "/images/projects/project-2.jpg", title: "Residential Tower" },
+    { image: "/images/projects/project-3.jpg", title: "Industrial Warehouse" },
+    { image: "/images/projects/project-1.jpg", title: "Shopping Center" },
+    { image: "/images/projects/project-2.jpg", title: "Hospital Extension" },
+    { image: "/images/projects/project-3.jpg", title: "Educational Campus" },
+];
 
-interface Slide {
-    id: number;
-    username: string;
-    tagline: string;
-    image: string;
-    profileImage: string;
-}
-
-interface DemoSliderProps {
-    data: Slide[];
-}
-
-const OurProject: React.FC<DemoSliderProps> = () => {
-    const projectList = [
-        {
-            firstImage: '/images/header-image.jpg',
-            secondImage: '/images/medium-shot-low-angle-view-smiling-engineer.jpg',
-            title: 'Modern Office Complex',
-            href: '#',
-        },
-        {
-            firstImage: '/images/projects/project-3.jpg',
-            secondImage: '/images/projects/project-1.jpg',
-            title: 'Residential Tower',
-            href: '#',
-        },
-        {
-            firstImage: '/images/header-image.jpg',
-            secondImage: '/images/projects/project-2.jpg',
-            title: 'Industrial Warehouse',
-            href: '#',
-        },
-        {
-            firstImage: '/images/header-image.jpg',
-            secondImage: '/images/medium-shot-low-angle-view-smiling-engineer.jpg',
-            title: 'Shopping Center',
-            href: '#',
-        },
-        {
-            firstImage: '/images/projects/project-3.jpg',
-            secondImage: '/images/projects/project-1.jpg',
-            title: 'Hospital Extension',
-            href: '#',
-        },
-        {
-            firstImage: '/images/header-image.jpg',
-            secondImage: '/images/projects/project-2.jpg',
-            title: 'Educational Campus',
-            href: '#',
-        },
-    ];
-
+export default function OurProject() {
     return (
         <section className="w-full text-center">
             <h2 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl mb-3">Our Projects</h2>
-            <div className="inter-var my-10 relative flex justify-center">
-                <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-accent text-bg-primary flex justify-center items-center p-2 sm:p-3 rounded-full size-10 sm:size-14 cursor-pointer">
-                    <FontAwesomeIcon icon={faAngleLeft} className="font-extralight text-3xl" />
-                </button>
-                <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-accent text-bg-primary flex justify-center items-center p-2 sm:p-3 rounded-full size-10 sm:size-14 cursor-pointer">
-                    <FontAwesomeIcon icon={faAngleRight} className="font-extralight text-3xl" />
-                </button>
-
-                <Swiper
-                    modules={[EffectCards, Navigation]}
-                    effect="cards"
-                    navigation={{
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    }}
-                    className="w-full max-w-[90vw] sm:max-w-[70vw] md:max-w-[60vw] lg:max-w-[50vw]"
-                >
-                    {projectList.map((item, index) => (
-                        <SwiperSlide key={index} className="cursor-grab rounded-xl relative border-3 border-text-primary bg-bg-primary">
-                            <Compare
-                                firstImage={item.firstImage}
-                                secondImage={item.secondImage}
-                                firstImageClassName="object-cover object-left-top"
-                                secondImageClassname="object-cover object-left-top"
-                                className="h-[50vh] sm:h-[60vh] w-full"
-                                slideMode="hover"
-                            />
-                            <div className="absolute bottom-0 flex justify-center items-center pt-3 w-full h-16 sm:h-20 bg-gradient-to-t from-text-primary/90 to-black/0 text-bg-primary text-xl sm:text-2xl font-medium z-50">
-                                {item.title}
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-8">
+                {projectList.map((item, index) => (
+                    <div key={index} className="relative h-56 md:h-64 rounded-xl overflow-hidden bg-bg-secondary">
+                        <Image
+                            src={item.image}
+                            alt={item.title}
+                            fill
+                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                            className="object-cover absolute inset-0"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-text-primary/90 to-transparent"></div>
+                        <div className="absolute inset-x-0 bottom-0 p-4 text-left text-bg-primary text-xl sm:text-2xl font-medium">
+                            {item.title}
+                        </div>
+                    </div>
+                ))}
             </div>
         </section>
     );
 }
-
-export default OurProject;

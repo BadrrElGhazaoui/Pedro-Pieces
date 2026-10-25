@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "swiper/css";
-@import "swiper/css/effect-cards";
 
 
 @theme {
@@ -29,10 +27,6 @@ html.dark {
   --color-status-positive: #00C853;
   --color-status-negative: #FF5252;
   --color-status-neutral: #FFD600;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 /* 🧱 Base Styles */

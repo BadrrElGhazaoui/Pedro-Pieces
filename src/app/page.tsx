@@ -1,17 +1,9 @@
 // Importing necessary components from the project structure
-// import Navbar from "@/components/ui/Navbar"; // Navigation bar component
 import Header from "@/components/home/Header"; // Header section component
 import Services from "@/components/home/Services"; // Services section component
-// import ThreeDSection from "@/components/ui/3D-modulse"; // 3D section component
-import SupportCompany from "@/components/home/support-our-company"; // Support our company section component
-import OurProjects from "@/components/home/Projects"; // Projects section component (takes data as a prop)
-import dataSlider from '@/data/our-project-data.json'; // JSON data for the projects slider
+import OurProjects from "@/components/home/Projects"; // Projects section component
 import AboutUs from "@/components/home/AboutUs"; // About Us section component
 import Blog from "@/components/home/Blog"; // Blog section component
-// import Footer from "@/components/ui/Footer"; // Footer section component
-// import WhyUs from "@/components/shared/WhyUs";
-import { ParallaxScroll } from "@/components/home/parallax-scroll";
-import clientText from "@/data/client-text.json";
 
 // Default export for the Home component
 export default function Home() {
@@ -26,22 +18,11 @@ export default function Home() {
         {/* Services section showcasing offered services */}
         <Services />
 
-        {/* 3D Solutions section with new image */}
-        {/* <ThreeDSection /> */}
-
-        {/* Projects section displaying a slider of projects */}
-        {/* Passes the `dataSlider` JSON data as a prop to the `OurProjects` component */}
-        <OurProjects data={dataSlider} />
+        {/* Projects section displaying static project cards */}
+        <OurProjects />
 
         {/* About Us section providing information about the company */}
         <AboutUs />
-
-        {/* Section encouraging users to support the company */}
-        <SupportCompany />
-
-
-        {/* <WhyUs /> */}
-        <ParallaxScroll clientsText={clientText} className="" key={0} />
 
         {/* Blog section displaying recent blog posts or articles */}
         <Blog />

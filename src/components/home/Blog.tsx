@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Blog() {
     const posts = [
@@ -34,12 +33,6 @@ export default function Blog() {
             {/* Header */}
             <div className="flex flex-row justify-between items-center mb-8">
                 <h2 className="font-extrabold text-3xl md:text-5xl">Blog</h2>
-                <Link
-                    href="/blog"
-                    className="p-2 px-6 md:p-3 md:px-8 text-base md:text-lg font-medium bg-accent text-bg-primary rounded-full shadow-md hover:bg-accent-dark transition"
-                >
-                    See More
-                </Link>
             </div>
 
             {/* Grid */}
