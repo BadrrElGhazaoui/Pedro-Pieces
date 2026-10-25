@@ -14,7 +14,7 @@ const navbarList: { title: string; link: string; mobileOnly?: boolean }[] = [
     { title: "Service", link: "/service" },
     { title: "Project", link: "/project" },
     { title: "Blog", link: "/blog" },
-    { title: "Contact", link: "#contact", mobileOnly: true },
+    { title: "Contact", link: "/contact", mobileOnly: true },
 ];
 
 export default function Navbar() {
@@ -50,7 +50,7 @@ export default function Navbar() {
             </ul>
 
             <div className="hidden lg:block w-1/6 text-right">
-                <Button link="#contact" text="Contact" />
+                <Button link="/contact" text="Contact" />
             </div>
         </nav>
     );
