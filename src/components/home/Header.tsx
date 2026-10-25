@@ -12,7 +12,7 @@ export default function Header() {
                     Building Tomorrow&apos;s Infrastructure with Innovation and Excellence
                 </h1>
                 <div className="w-3/4 md:w-2/5 flex justify-center items-center mt-6 md:mt-0">
-                    <Image className="w-48 md:w-80" src="/images/petro-pieces-logo.png" alt="Header Image" width={250} height={97} />
+                    <Image className="w-64 md:w-full max-w-md h-auto" src="/images/petro-pieces-logo.png" alt="Pedro Pièces SARL AU" width={900} height={108} />
                 </div>
             </div>
             <div className="flex flex-col lg:flex-row justify-between items-center relative w-full xl:mt-0 md:mt-4">

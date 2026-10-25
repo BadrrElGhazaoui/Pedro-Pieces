@@ -23,8 +23,8 @@ export default function Navbar() {
 
     return (
         <nav id="navbar" className="flex items-center justify-between px-6 m-0 relative">
-            <div className="flex items-center md:w-1/6">
-                <Image className="h-10 w-auto" src="/images/petro-pieces-logo.png" alt="Logo" width={250} height={97} />
+            <div className="flex items-center lg:w-1/4">
+                <Image className="h-7 lg:h-8 xl:h-9 w-auto" src="/images/petro-pieces-logo.png" alt="Pedro Pièces SARL AU" width={900} height={108} />
             </div>
 
             <button

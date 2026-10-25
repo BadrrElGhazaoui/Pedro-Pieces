@@ -36,7 +36,7 @@ export default function Blog() {
                 <h2 className="font-extrabold text-3xl md:text-5xl">Blog</h2>
                 <Link
                     href="/blog"
-                    className="p-2 px-6 md:p-3 md:px-8 text-base md:text-lg font-medium bg-accent text-bg-primary rounded-full shadow-md hover:bg-orange-600 transition"
+                    className="p-2 px-6 md:p-3 md:px-8 text-base md:text-lg font-medium bg-accent text-bg-primary rounded-full shadow-md hover:bg-accent-dark transition"
                 >
                     See More
                 </Link>
