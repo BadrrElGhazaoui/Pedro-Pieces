@@ -13,7 +13,7 @@ export const metadata = {
 export const description = "Pedro Pièces SARL AU : achat, vente, import et export de pièces de rechange pour engins BTP à Casablanca.";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-200">
+    <html lang="en" data-scroll-behavior="smooth" className="scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-200">
       <body className={`${rubik.className} space-y-16`}>
         {/* <body > */}
         <Navbar />

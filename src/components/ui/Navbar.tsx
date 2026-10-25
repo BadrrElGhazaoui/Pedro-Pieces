@@ -8,13 +8,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHamburger } from '@fortawesome/free-solid-svg-icons';
 import Button from "@/components/ui/Button";
 
-const navbarList = [
+const navbarList: { title: string; link: string; mobileOnly?: boolean }[] = [
     { title: "Home", link: "/" },
     { title: "About", link: "/about" },
     { title: "Service", link: "/service" },
     { title: "Project", link: "/project" },
     { title: "Blog", link: "/blog" },
-    { title: "Contact", link: "/contact" },
+    { title: "Contact", link: "#contact", mobileOnly: true },
 ];
 
 export default function Navbar() {
@@ -37,9 +37,10 @@ export default function Navbar() {
                 className={`menu flex flex-col lg:flex-row absolute z-20 lg:relative top-20 lg:top-auto left-0 w-full lg:w-auto bg-bg-primary shadow-sm lg:shadow-none transition-all duration-1000 ease-in-out transform ${menuOpen ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0 -z-20 lg:opacity-100 lg:translate-y-0"}`}
             >
                 {navbarList.map((item, index) => (
-                    <li key={index} className="relative font-bold mx-1 text-center lg:text-left">
+                    <li key={index} className={`relative font-bold mx-1 text-center lg:text-left ${item.mobileOnly ? "lg:hidden" : ""}`}>
                         <Link
                             href={item.link}
+                            onClick={() => setMenuOpen(false)}
                             className={`block px-4 py-3 lg:px-4 lg:py-2 text-[17px] tracking-[1px] cursor-pointer transition duration-1000 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[4px] after:bg-accent after:rounded after:scale-0 after:transition-transform after:origin-right hover:after:scale-100 hover:after:origin-left ${pathname === item.link ? "font-bold text-accent after:scale-100" : "text-text-primary"}`}
                         >
                             {item.title}
@@ -49,7 +50,7 @@ export default function Navbar() {
             </ul>
 
             <div className="hidden lg:block w-1/6 text-right">
-                <Button link="/contact" text="Get a Quote" />
+                <Button link="#contact" text="Contact" />
             </div>
         </nav>
     );
