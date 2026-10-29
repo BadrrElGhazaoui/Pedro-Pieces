@@ -7,7 +7,7 @@ Perfect for businesses to showcase services, portfolios, team members, and conta
 
 ## 🚀 Live Demo
 
-🌐 [View Live Site](https://corporate-template-arshia-pourfar.vercel.app/)
+🌐 [View Live Site](https://badrrelghazaoui.github.io/Pedro-Pieces/)
 
 ---
 
