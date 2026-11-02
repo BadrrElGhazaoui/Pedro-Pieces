@@ -14,13 +14,15 @@ export const description = "Pedro Pièces SARL AU : achat, vente, import et expo
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className="scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-200">
-      <body className={`${rubik.className} space-y-16`}>
+      <body className={rubik.className}>
         {/* <body > */}
         <Navbar />
-        <main className="container px-2 mx-auto">
+        <main className="container mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
           {children}
         </main>
-        <Footer />
+        <div className="container mx-auto mt-12 px-4 sm:mt-16 sm:px-6 lg:px-8">
+          <Footer />
+        </div>
       </body>
     </html>
   );

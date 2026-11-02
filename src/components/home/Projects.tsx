@@ -29,13 +29,13 @@ export default function OurProject() {
       <div className="relative mx-auto mt-8 max-w-5xl px-1 sm:px-10">
         <button
           aria-label="Previous project"
-          className="projects-carousel-prev absolute left-0 top-1/2 z-10 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-bg-primary text-accent shadow-lg ring-1 ring-gray-200 transition hover:bg-accent hover:text-bg-primary sm:left-0 sm:size-12"
+          className="projects-carousel-prev absolute left-2 top-3 z-10 flex size-9 translate-y-0 cursor-pointer items-center justify-center rounded-full bg-bg-primary text-accent shadow-lg ring-1 ring-gray-200 transition hover:bg-accent hover:text-bg-primary sm:left-0 sm:top-1/2 sm:size-12 sm:-translate-y-1/2"
         >
           <FontAwesomeIcon icon={faAngleLeft} className="text-xl" />
         </button>
         <button
           aria-label="Next project"
-          className="projects-carousel-next absolute right-0 top-1/2 z-10 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-bg-primary text-accent shadow-lg ring-1 ring-gray-200 transition hover:bg-accent hover:text-bg-primary sm:right-0 sm:size-12"
+          className="projects-carousel-next absolute right-2 top-3 z-10 flex size-9 translate-y-0 cursor-pointer items-center justify-center rounded-full bg-bg-primary text-accent shadow-lg ring-1 ring-gray-200 transition hover:bg-accent hover:text-bg-primary sm:right-0 sm:top-1/2 sm:size-12 sm:-translate-y-1/2"
         >
           <FontAwesomeIcon icon={faAngleRight} className="text-xl" />
         </button>
@@ -54,7 +54,7 @@ export default function OurProject() {
           {projects.map((project) => (
             <SwiperSlide
               key={project.title}
-              className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-text-primary"
+              className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-text-primary sm:aspect-[16/10]"
             >
               <Image
                 src={project.image}

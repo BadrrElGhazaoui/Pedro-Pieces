@@ -24,23 +24,23 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen w-full">
-      <main className="sm:max-w-7xl mx-auto sm:p-6 pb-0 space-y-8">
+    <div className="w-full">
+      <div className="mx-auto max-w-7xl space-y-8">
         {/* Page Title */}
         <section className="text-center space-y-3">
           <h1 className="sm:text-5xl text-3xl font-extrabold text-accent">Contact Us</h1>
-          <p className="text-text-primary">
+          <p className="mx-auto max-w-2xl text-sm leading-6 text-text-secondary sm:text-base">
             Have questions or need assistance? Fill out the form below or reach us via the contact info.
           </p>
         </section>
 
         {/* Main Section */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
           {/* Contact Form */}
           <div className="flex flex-col">
             <form
               onSubmit={handleSubmit}
-              className="flex-1 p-8 rounded-3xl shadow-md space-y-6 border border-text-secondary -200"
+              className="flex-1 space-y-6 rounded-3xl border border-gray-200 p-5 shadow-md sm:p-8"
             >
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>
@@ -51,7 +51,7 @@ export default function ContactPage() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-xl border border-text-secondary -300 p-3 focus:ring-2 focus:ring-accent outline-none transition"
+                  className="w-full rounded-xl border border-gray-300 p-3 outline-none transition focus:ring-2 focus:ring-accent"
                 />
               </div>
 
@@ -64,7 +64,7 @@ export default function ContactPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-xl border border-text-secondary -300 p-3 focus:ring-2 focus:ring-accent outline-none transition"
+                  className="w-full rounded-xl border border-gray-300 p-3 outline-none transition focus:ring-2 focus:ring-accent"
                 />
               </div>
 
@@ -77,7 +77,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   rows={5}
                   required
-                  className="w-full flex-1 rounded-xl border border-text-secondary -300 p-3 focus:ring-2 focus:ring-accent outline-none transition resize-none"
+                  className="w-full flex-1 resize-none rounded-xl border border-gray-300 p-3 outline-none transition focus:ring-2 focus:ring-accent"
                 />
               </div>
 
@@ -92,18 +92,18 @@ export default function ContactPage() {
 
           {/* Contact Info */}
           <div className="flex flex-col">
-            <div className="flex-1 flex flex-col justify-between p-8 rounded-3xl shadow-md space-y-6 border border-text-secondary -200">
+            <div className="flex-1 space-y-6 rounded-3xl border border-gray-200 p-5 shadow-md sm:p-8">
               <div>
                 <h2 className="text-text-primary text-2xl font-bold mb-3">Contact Info</h2>
                 <p className="text-text-secondary mb-3">
                   Reach out to our support team via:
                 </p>
-                <ul className="space-y-3 text-text-secondary -800">
+                <ul className="space-y-3 text-text-secondary">
                   <li className="flex items-center gap-2">
                     <FontAwesomeIcon icon={faEnvelope} className="text-accent w-5 h-5" />
                     <a
                       href="mailto:arshiapourfar@gmail.com"
-                      className="hover:underline"
+                      className="break-all hover:underline sm:break-normal"
                     >
                       arshiapourfar@gmail.com
                     </a>
@@ -132,7 +132,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

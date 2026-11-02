@@ -21,26 +21,32 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <nav id="navbar" className="flex items-center justify-between px-6 m-0 relative">
+        <nav id="navbar" className="relative z-30 mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
             <div className="flex items-center lg:w-1/4">
-                <Image className="h-7 lg:h-8 xl:h-9 w-auto" src="/images/petro-pieces-logo.png" alt="Pedro Pièces SARL AU" width={900} height={108} />
+                <Image className="h-7 w-auto sm:h-8 lg:h-9" src="/images/petro-pieces-logo.png" alt="Pedro Pièces SARL AU" width={900} height={108} />
             </div>
 
             <button
-                className="lg:hidden block p-2 text-bg-secondary z-40"
+                type="button"
+                aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={menuOpen}
+                aria-controls="primary-navigation"
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="z-40 block p-2 text-xl text-text-primary lg:hidden"
             >
-                <FontAwesomeIcon icon={faHamburger} onClick={() => setMenuOpen(!menuOpen)} />
+                <FontAwesomeIcon icon={faHamburger} aria-hidden="true" />
             </button>
 
             <ul
-                className={`menu flex flex-col lg:flex-row absolute z-20 lg:relative top-20 lg:top-auto left-0 w-full lg:w-auto bg-bg-primary shadow-sm lg:shadow-none transition-all duration-1000 ease-in-out transform ${menuOpen ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0 -z-20 lg:opacity-100 lg:translate-y-0"}`}
+                id="primary-navigation"
+                className={`absolute left-0 right-0 top-full z-30 flex flex-col border-t border-gray-100 bg-bg-primary px-4 py-2 shadow-lg transition duration-200 lg:static lg:flex-row lg:items-center lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none ${menuOpen ? "visible translate-y-0 opacity-100" : "invisible pointer-events-none -translate-y-2 opacity-0"} lg:visible lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto`}
             >
-                {navbarList.map((item, index) => (
-                    <li key={index} className={`relative font-bold mx-1 text-center lg:text-left ${item.mobileOnly ? "lg:hidden" : ""}`}>
+                {navbarList.map((item) => (
+                    <li key={item.link} className={`relative font-bold text-center lg:mx-1 lg:text-left ${item.mobileOnly ? "lg:hidden" : ""}`}>
                         <Link
                             href={item.link}
                             onClick={() => setMenuOpen(false)}
-                            className={`block px-4 py-3 lg:px-4 lg:py-2 text-[17px] tracking-[1px] cursor-pointer transition duration-1000 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[4px] after:bg-accent after:rounded after:scale-0 after:transition-transform after:origin-right hover:after:scale-100 hover:after:origin-left ${pathname === item.link ? "font-bold text-accent after:scale-100" : "text-text-primary"}`}
+                            className={`relative block cursor-pointer px-4 py-3 text-base tracking-wide transition after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:scale-0 after:rounded after:bg-accent after:transition-transform after:content-[''] hover:after:scale-100 lg:py-2 ${pathname === item.link ? "font-bold text-accent after:scale-100" : "text-text-primary"}`}
                         >
                             {item.title}
                         </Link>

@@ -33,6 +33,6 @@ html.dark {
 /* 🧱 Base Styles */
 body {
   background: var(--color-bg-primary);
-  color: var(--color-primary-text);
+  color: var(--color-text-primary);
   font-family: 'Rubik', sans-serif;
 }

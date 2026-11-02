@@ -7,8 +7,8 @@ export default function Footer() {
     return (
         <>
             <div className="border-t border-text-primary/50"></div>
-            <footer className="relative mx-auto container mb-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
+            <footer className="relative mx-auto mb-5 max-w-7xl">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                     <div className="text-center">
                         <Image width={900} height={108} className="mx-auto mb-4 w-56 md:w-64 h-auto" src="/images/petro-pieces-logo.png" alt="Pedro Pièces SARL AU" />
                         <ul className="flex justify-center gap-4">
